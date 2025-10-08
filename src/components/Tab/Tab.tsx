@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { TabsContext } from "../Tabs/context/TabsContext";
 import { TablistContext } from "../Tablist/contexts/TablistContext";
 import styles from "./Tab.module.css";
 import { Badge, BadgeProps } from "../Badge";
@@ -31,15 +32,37 @@ export const Tab: React.FC<TabProps> = ({
   isSelected = false,
   ...props
 }) => {
-  const ctx = useContext(TablistContext);
-  const inheritedVariant = ctx?.variant ?? variant ?? "pill";
+  /* Check if Tab is used inside a Tablist component */
+  const ctxTablist = useContext(TablistContext);
+  const ctxVariant = ctxTablist?.variant ?? variant ?? "pill";
+
+  /* Check if Tab is used inside a Tabs component */
+  const ctxTabs = useContext(TabsContext);
+  const ctxUID = ctxTabs?.uID !== undefined ? ctxTabs?.uID : "";
+
+  const idTab = `${id}_button_${ctxUID}`;
+  const idPanel = `${id}_tabpanel_${ctxUID}`;
+
+  const ctxIsSelected =
+    ctxTabs?.selectedTab !== undefined
+      ? ctxTabs.selectedTab === id
+      : isSelected;
 
   const classes = `
     ${styles.tab} 
-    ${styles[inheritedVariant]}
+    ${styles[ctxVariant]}
   `.trim();
+
   return (
-    <button id={id} role="tab" aria-selected={isSelected} className={classes}>
+    <button
+      id={idTab}
+      data-id={id}
+      role="tab"
+      className={classes}
+      aria-selected={ctxIsSelected}
+      aria-controls={idPanel}
+      tabIndex={ctxIsSelected ? 0 : -1}
+    >
       <span className={styles["tab__label"]}>
         {label}
         {"badgeLabel" in props && props.badgeLabel && (
