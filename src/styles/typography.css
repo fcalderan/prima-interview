@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-.bodyS,
-.bodyM {
+[class*="body"] {
   font-family: "Inter", Arial, sans-serif;
   line-height: 1.5;
 }
@@ -12,4 +11,31 @@
 
 .bodyM {
   font-size: 0.875rem;
+}
+
+.bodyXL {
+  font-size: 1.25rem;
+}
+
+/* just to test the content of the TabPanels */
+.blockquoteDefault {
+  quotes: "\201C""\201D";
+
+  &:before {
+    content: open-quote;
+    font-family: sans-serif;
+    font-size: 400%;
+    line-height: 0.1;
+    margin-inline-end: 0.2em;
+    vertical-align: bottom;
+  }
+
+  p {
+    display: inline;
+  }
+
+  cite {
+    display: block;
+    margin-block-start: 2rem;
+  }
 }
