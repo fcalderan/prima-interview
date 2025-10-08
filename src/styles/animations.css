@@ -1,0 +1,5 @@
+@media (prefers-reduced-motion: no-preference) {
+  .colors {
+    transition: color, background-color 0.2s ease-in;
+  }
+}

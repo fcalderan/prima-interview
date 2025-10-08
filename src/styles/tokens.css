@@ -1,0 +1,23 @@
+:root {
+  /* Component variables
+   * I choose to use pixels for spacing, borders and radii
+   * https://medium.com/@helenekassandra/rem-ember-to-scale-what-matters-90d240eda178
+   */
+  --spacing-0: 0;
+  --spacing-4xs: 2px;
+  --spacing-3xs: 4px;
+  --spacing-2xs: 8px;
+  --spacing-xs: 12px;
+  --spacing-s: 16px;
+  --spacing-m: 20px;
+  --spacing-l: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* On Figma the token was actually 4px, but the visual result is different 
+   * because it is related to the border of the element, while I'm using the
+   * outline property (the outline-offset also must be taken into account), 
+   * so I adjusted the value to 2px. 
+   */
+  --radius-2xs: 2px;
+}
