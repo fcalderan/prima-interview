@@ -18,7 +18,9 @@
   },
   "devDependencies": {
     "@storybook/addon-docs": "^9.1.5",
+    "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-links": "^9.1.10",
+    "@storybook/react": "^9.1.10",
     "@storybook/react-vite": "^9.1.5",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.8.0",
@@ -27,6 +29,7 @@
     "@types/jest": "^30.0.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "@types/storybook__react": "^5.2.1",
     "@typescript-eslint/eslint-plugin": "^8.43.0",
     "@typescript-eslint/parser": "^8.43.0",
     "@vitejs/plugin-react-swc": "^4.0.1",
