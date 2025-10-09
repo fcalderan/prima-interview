@@ -1,0 +1,31 @@
+@use "../../styles/breakpoints.scss" as bp;
+@import "../../styles/tokens.css";
+
+.tabpanel {
+  composes: bodyXL from "../../styles/typography.css";
+
+  blockquote {
+    quotes: "\201C""\201D";
+    margin: 0;
+    padding-inline-start: var(--spacing-xl);
+    border-inline-start: 3px solid;
+
+    &:before {
+      content: open-quote;
+      font-family: sans-serif;
+      font-size: 400%;
+      line-height: 0.1;
+      margin-inline-end: 0.2em;
+      vertical-align: bottom;
+    }
+
+    p {
+      display: inline;
+    }
+
+    cite {
+      display: block;
+      margin-block-start: 2rem;
+    }
+  }
+}

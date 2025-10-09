@@ -1,0 +1,22 @@
+@use "../../styles/breakpoints.scss" as bp;
+@import "../../styles/tokens.css";
+
+.Tabs {
+  display: flex;
+
+  &.pill {
+    gap: var(--spacing-2xs);
+
+    @media (width > bp.$medium) {
+      gap: var(--spacing-xs);
+    }
+  }
+
+  &.underline {
+    gap: var(--spacing-l);
+
+    @media (width > bp.$medium) {
+      gap: var(--spacing-xl);
+    }
+  }
+}
