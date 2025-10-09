@@ -3,20 +3,6 @@
 @import "../../styles/animations.css";
 
 .tab {
-  --OnNeutral: oklch(25.151% 0.03726 270.183);
-  --SurfaceHover: oklch(97.428% 0.00541 286);
-  --SurfaceHigh: oklch(95.986% 0.00809 286.053);
-  --SurfaceActive: oklch(95.986% 0.00809 286.053);
-
-  --OnInverse: oklch(100% 0.00011 271.152);
-  --Inverse: oklch(25.151% 0.03726 270.183);
-
-  --InverseHover: oklch(35.154% 0.03594 271.521);
-  --InverseActive: oklch(48.151% 0.03283 274.095);
-
-  --Outline: oklch(86.952% 0.01239 286.029);
-  --OutlineHover: oklch(82.566% 0.01401 281.452);
-
   composes: bodyM from "../../styles/typography.css";
   composes: colors from "../../styles/animations.css";
 
@@ -37,7 +23,10 @@
   }
 
   &:focus {
-    outline: 2px solid oklch(0% 0 0);
+    outline: 2px solid var(--Inverse);
+    /* Actually, the pill tab when is not selected has a #000 outline in the Figma design
+     * I keep it consistent using always --Inverse color 
+     */
     outline-offset: 2px;
   }
 
@@ -57,14 +46,14 @@
       border-color: var(--Inverse);
       background-color: var(--Inverse);
 
-      &:hover {
-        background-color: var(--InverseHover);
-        border-color: var(--InverseHover);
-      }
-
       &:focus {
         background-color: var(--Inverse);
         border-color: var(--Inverse);
+      }
+
+      &:hover {
+        background-color: var(--InverseHover);
+        border-color: var(--InverseHover);
       }
 
       &:active {
@@ -76,18 +65,18 @@
     /* selected state is false (inferred by aria-selected) */
     &[aria-selected="false"] {
       /* defining a starting color with alpha 0 for the transition (not defined on Figma) */
-      --Surface: oklch(from var(--InverseActive) l c h / 0);
+      --Surface: hsla(var(--InverseActive), 0);
 
       color: var(--OnNeutral);
       border-color: var(--Outline);
       background-color: var(--Surface);
 
-      &:hover {
-        background-color: var(--SurfaceHover);
-      }
-
       &:focus {
         background-color: var(--Surface);
+      }
+
+      &:hover {
+        background-color: var(--SurfaceHover);
       }
 
       &:active {
@@ -101,7 +90,7 @@
     border-radius: var(--radius-2xs);
 
     /* defining a starting color with alpha 0 for the transition (not defined on Figma) */
-    --underline-color: oklch(from var(--OutlineHover) l c h / 0);
+    --underline-color: hsla(var(--OutlineHover), 0);
 
     &[aria-selected="true"] {
       --underline-color: var(--Inverse);

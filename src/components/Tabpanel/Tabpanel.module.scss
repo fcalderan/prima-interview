@@ -1,8 +1,17 @@
 @use "../../styles/breakpoints.scss" as bp;
 @import "../../styles/tokens.css";
 
+/* some basic style to show the content of a panel */
+
 .tabpanel {
   composes: bodyXL from "../../styles/typography.css";
+
+  margin-block-start: 12px;
+  padding: var(--spacing-2xs);
+  border-radius: 2px;
+  &:focus {
+    outline-color: var(--Inverse);
+  }
 
   blockquote {
     quotes: "\201C""\201D";
