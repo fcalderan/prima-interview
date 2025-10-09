@@ -1,8 +1,8 @@
 import { createContext, useContext } from "react";
+import { TabBaseProps } from "../../Tab";
 
 export type TabsContextType = {
-  uID?: string | null;
-  selectedTab?: string | null;
+  variant?: TabBaseProps["variant"];
 };
 
 export const TabsContext = createContext<TabsContextType | null>(null);

@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { TabsContext } from "../Tabs/context/TabsContext";
-import { TablistContext } from "../Tablist/contexts/TablistContext";
-import styles from "./Tab.module.css";
+import { TabcontainerContext } from "../Tabcontainer/context/TabcontainerContext";
+import { TabsContext } from "../Tabs/contexts/TabsContext";
+import styles from "./Tab.module.scss";
 import { Badge, BadgeProps } from "../Badge";
 
 /* Base tab */
 export interface TabBaseProps {
-  /** Unique identifier */
+  /** Identifier */
   id: string;
   /** Visible label */
   label: string;
@@ -32,22 +32,24 @@ export const Tab: React.FC<TabProps> = ({
   isSelected = false,
   ...props
 }) => {
-  /* Check if Tab is used inside a Tablist component */
-  const ctxTablist = useContext(TablistContext);
-  const ctxVariant = ctxTablist?.variant ?? variant ?? "pill";
-
   /* Check if Tab is used inside a Tabs component */
   const ctxTabs = useContext(TabsContext);
-  const ctxUID = ctxTabs?.uID !== undefined ? ctxTabs?.uID : "";
+  const ctxVariant = ctxTabs?.variant ?? variant ?? "pill";
 
-  const idTab = `${id}_button_${ctxUID}`;
-  const idPanel = `${id}_tabpanel_${ctxUID}`;
-
+  /* Check if Tab is used inside a Tabcontainer component */
+  const ctxTabcontainer = useContext(TabcontainerContext);
+  const ctxUID =
+    ctxTabcontainer?.uID !== undefined ? `_${ctxTabcontainer.uID}` : "";
   const ctxIsSelected =
-    ctxTabs?.selectedTab !== undefined
-      ? ctxTabs.selectedTab === id
+    ctxTabcontainer?.selectedTab !== undefined
+      ? ctxTabcontainer.selectedTab === id
       : isSelected;
 
+  /* define unique IDs */
+  const idTab = `${id}_button${ctxUID}`;
+  const idPanel = `${id}_tabpanel${ctxUID}`;
+
+  /* class composition */
   const classes = `
     ${styles.tab} 
     ${styles[ctxVariant]}

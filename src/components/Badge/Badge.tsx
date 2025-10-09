@@ -1,4 +1,4 @@
-import styles from "./Badge.module.css";
+import styles from "./Badge.module.scss";
 
 export interface BadgeProps {
   /** Badge content, visible to the user */

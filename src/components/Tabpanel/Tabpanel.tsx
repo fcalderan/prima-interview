@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { TabsContext } from "../Tabs/context/TabsContext";
-import styles from "./Tabpanel.module.css";
+import { TabcontainerContext } from "../Tabcontainer/context/TabcontainerContext";
+import styles from "./Tabpanel.module.scss";
 
 type TabpanelType = {
   id: string;
@@ -8,22 +8,23 @@ type TabpanelType = {
 };
 
 export const Tabpanel: React.FC<TabpanelType> = function ({ id, children }) {
-  /* Check for a Tabs context */
-  const ctxTabs = useContext(TabsContext);
-  const ctxUID = ctxTabs?.uID !== undefined ? ctxTabs?.uID : "";
+  /* Check if the component is within a Tabcontainer context, get  */
+  const ctxTabcontainer = useContext(TabcontainerContext);
+  const ctxUID = ctxTabcontainer?.uID !== undefined ? ctxTabcontainer?.uID : "";
 
+  /* Create unique IDs for tabs and panels to avoid duplicated identifiers */
   const idTab = `${id}_button_${ctxUID}`;
   const idPanel = `${id}_tabpanel_${ctxUID}`;
 
   const ctxIsSelected =
-    ctxTabs?.selectedTab !== undefined ? ctxTabs.selectedTab === id : false;
-
-  const classes = styles.tabpanel;
+    ctxTabcontainer?.selectedTab !== undefined
+      ? ctxTabcontainer.selectedTab === id
+      : false;
 
   return (
     <div
       role="tabpanel"
-      className={classes}
+      className={styles.tabpanel}
       id={idPanel}
       aria-labelledby={idTab}
       tabIndex={ctxIsSelected ? 0 : -1}

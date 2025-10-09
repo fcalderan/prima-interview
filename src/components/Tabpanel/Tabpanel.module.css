@@ -1,6 +1,0 @@
-.tabpanel {
-  composes: bodyXL from "../../styles/typography.css";
-  composes: blockquoteDefault from "../../styles/typography.css";
-
-  font-weight: 400;
-}
