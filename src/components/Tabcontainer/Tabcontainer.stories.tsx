@@ -16,9 +16,19 @@ export const PillTabcontainer: Story = {
   render: () => (
     <Tabcontainer initialSelectedTab="tab3">
       <Tabs variant="pill">
-        <Tab id="tab1" label="Want to be more" />
+        <Tab
+          id="tab1"
+          label="Want to"
+          badgeLabel="be more"
+          badgeVariant="positive"
+        />
         <Tab id="tab2" label="Not the other way around" />
-        <Tab id="tab3" label="Are we safe?" />
+        <Tab
+          id="tab3"
+          label="Are we"
+          badgeLabel="safe?"
+          badgeVariant="negative"
+        />
       </Tabs>
 
       <Tabpanel id="tab1">
@@ -91,7 +101,7 @@ export const UnderlineTabcontainer: Story = {
     <Tabcontainer initialSelectedTab="tab1">
       <Tabs variant="underline">
         <Tab id="tab1" label="Want to be more" />
-        <Tab id="tab2" label="Not the other way around" />
+        <Tab id="tab2" label="Not the other" badgeLabel="way around" />
         <Tab id="tab3" label="Are we safe?" />
       </Tabs>
 

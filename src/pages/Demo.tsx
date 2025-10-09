@@ -6,7 +6,7 @@ import { Tabpanel } from "../components/Tabpanel";
 const Demo: React.FC = () => {
   return (
     <div className="body">
-      <h1>My Tab component</h1>
+      <h1>Tab component </h1>
 
       <p>
         This simple demo includes two fully-functioning tabs (pill and underline
@@ -27,9 +27,19 @@ const Demo: React.FC = () => {
 
       <Tabcontainer initialSelectedTab="tab1">
         <Tabs variant="pill">
-          <Tab id="tab1" label="Want to be more" />
+          <Tab
+            id="tab1"
+            label="Want to"
+            badgeLabel="be more"
+            badgeVariant="positive"
+          />
           <Tab id="tab2" label="Not the other way around" />
-          <Tab id="tab3" label="Are we safe?" />
+          <Tab
+            id="tab3"
+            label="Are we"
+            badgeLabel="safe?"
+            badgeVariant="negative"
+          />
         </Tabs>
 
         <Tabpanel id="tab1">
@@ -101,16 +111,26 @@ const Demo: React.FC = () => {
 
       <p>
         Below is an example of a <code>&lt;Tabcontainer /&gt;</code> component
-        with the &ldquo;underline&rdquo; variant style. The initialSelectedTab prop is set
-        to <strong>tab2</strong>, the <code>&lt;Tabs /&gt;</code> component has
-        variant set to <strong>underline&ldquo;pill&rdquo;
+        with the &ldquo;underline&rdquo; variant style. The initialSelectedTab
+        prop is set to <strong>tab2</strong>, the <code>&lt;Tabs /&gt;</code>{" "}
+        component has variant set to <strong>underline</strong>
       </p>
 
       <Tabcontainer initialSelectedTab="tab2">
         <Tabs variant="underline">
-          <Tab id="tab1" label="Want to be more" />
+          <Tab
+            id="tab1"
+            label="Want to"
+            badgeLabel="be more"
+            badgeVariant="positive"
+          />
           <Tab id="tab2" label="Not the other way around" />
-          <Tab id="tab3" label="Are we safe?" />
+          <Tab
+            id="tab3"
+            label="Are we"
+            badgeLabel="safe?"
+            badgeVariant="negative"
+          />
         </Tabs>
 
         <Tabpanel id="tab1">
@@ -176,6 +196,13 @@ const Demo: React.FC = () => {
           </>
         </Tabpanel>
       </Tabcontainer>
+
+      <p>
+        Realized by Fabrizio Calderan (me@fabrizio.dev) as a technical challenge
+        for Prima between Oct. 7th and 10th, 2025.
+        <br />
+        https://fabrizio.dev <br />
+      </p>
     </div>
   );
 };
