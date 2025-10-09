@@ -1,0 +1,23 @@
+@import "./styles/typography.css";
+
+h1,
+h2,
+p {
+  padding-block-end: 2.5rem;
+}
+
+[class*="tabcontainer"] {
+  margin: 3rem 0;
+}
+
+.body {
+  inline-size: min(60rem, 100%);
+  margin-inline: auto;
+}
+
+code {
+  padding: 0.25rem 0.1rem;
+  border-radius: 5px;
+  border: 1px solid oklab(93.44% 0.00048 -0.00557);
+  background: oklab(95.9% 0.00112 -0.00394);
+}
