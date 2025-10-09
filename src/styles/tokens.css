@@ -1,6 +1,5 @@
 :root {
-  /* Tokens - Global variables 
-   * I choose to use pixels for spacings and radii
+  /* Pixels units for spacings and radii
    * https://medium.com/@helenekassandra/rem-ember-to-scale-what-matters-90d240eda178
    */
   --spacing-0: 0;
