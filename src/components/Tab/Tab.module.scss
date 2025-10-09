@@ -113,9 +113,10 @@
     /* The underline is created with a pseudoelement instead of a border-bottom
     * because a border-radius is defined.
     */
-    &:after {
+    &::after {
       content: ""/"";
       block-size: 3px;
+      display: block;
       border-radius: 100px;
       transition: inherit;
       background: var(--underline-color);

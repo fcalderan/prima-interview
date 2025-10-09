@@ -17,4 +17,6 @@
    * so I adjusted the value to 2px. 
    */
   --radius-2xs: 2px;
+
+  /* Disabilita la view transition ovunque */
 }

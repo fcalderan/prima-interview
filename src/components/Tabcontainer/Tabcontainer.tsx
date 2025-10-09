@@ -11,10 +11,11 @@ export const Tabcontainer: React.FC<TabcontainerProps> = ({
   children,
 }) => {
   const uID = useId();
-  const [selectedTab, setSelectedTab] = useState<string | null>(
-    initialSelectedTab || null
+  const [selectedTab, setSelectedTab] = useState<string | undefined>(
+    initialSelectedTab || undefined
   );
 
+  /* a11y */
   const handleOnKeyDown = (ev: React.KeyboardEvent<HTMLDivElement>) => {
     /*
      * ArrowUp and ArrowDown are not really necessary for inline tablists
@@ -72,6 +73,10 @@ export const Tabcontainer: React.FC<TabcontainerProps> = ({
     tabs[nextFocusedTabIndex].focus();
   };
 
+  const updateState = (tabElement: HTMLElement) => {
+    setSelectedTab(tabElement.dataset.id);
+  };
+
   /* Set the tab */
   const handleTabClick = (ev: React.MouseEvent<HTMLDivElement>) => {
     const target = ev.target as HTMLElement;
@@ -84,11 +89,7 @@ export const Tabcontainer: React.FC<TabcontainerProps> = ({
 
   return (
     <TabcontainerContext.Provider value={{ uID, selectedTab }}>
-      <div
-        className="tabs"
-        onClick={handleTabClick}
-        onKeyDown={handleOnKeyDown}
-      >
+      <div onClick={handleTabClick} onKeyDown={handleOnKeyDown}>
         {children}
       </div>
     </TabcontainerContext.Provider>
