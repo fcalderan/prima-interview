@@ -12,9 +12,8 @@ The {'<Tabpanels>'} component just provides a convenient wrapper for all the tab
 
 ```
 
-This component <strong>is not strictly necessary</strong> and its use is totally optional.
-
-I used this wrapper in order to realize a subtle transition between panels when the user changes the active tab.
+This component <strong>is optional</strong> and it needs to perform a subtle transition between
+panels when the user changes the active tab.
 
 The wrapper has `display: grid` and applies `grid-area: 1 / 1` to its children, so they can overlap  
 each other and completely fill the wrapper. This allows for a simple seamless crossfade effect between

@@ -16,10 +16,16 @@ export const Tabpanel: React.FC<TabpanelProps> = function ({ id, children }) {
   const idTab = `${id}_button_${ctxUID}`;
   const idPanel = `${id}_tabpanel_${ctxUID}`;
 
+  /* we need to decide if this panel is visible or not */
   const ctxIsSelected =
+    /* A selectedtab value is passed froma a tabcontainer provider? */
     ctxTabcontainer?.selectedTab !== undefined
-      ? ctxTabcontainer.selectedTab === id
-      : true;
+      ? /* Does it match the current id ? */
+        ctxTabcontainer.selectedTab === id
+      : /* Otherwise, if this ctxTabcontainer is false then I'm loading this
+         * component alone and I need to set this property to true
+         */
+        !ctxTabcontainer;
 
   return (
     <div
