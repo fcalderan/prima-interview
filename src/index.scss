@@ -1,4 +1,4 @@
-@import "./styles/typography.css";
+@use "./styles/common.scss" as c;
 
 h1,
 h2,
@@ -11,6 +11,7 @@ p {
 }
 
 .body {
+  @include c.bodyL;
   inline-size: min(60rem, 100%);
   margin-inline: auto;
 }

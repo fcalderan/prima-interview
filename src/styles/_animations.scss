@@ -1,3 +1,4 @@
+$duration-xs: 0.06s;
 $duration-s: 0.16s;
 $easing-default: ease-in;
 
@@ -19,14 +20,13 @@ $easing-default: ease-in;
   @include noReducedMotion {
     display: none;
     opacity: 0;
-    will-change: opacity, display;
-    transition: opacity $duration-s $easing-default,
-      display $duration-s $easing-default allow-discrete;
+    /*will-change: opacity, display;*/
+    transition: opacity $duration-xs $easing-default,
+      display $duration-xs $easing-default allow-discrete;
 
     &:not([hidden]) {
       opacity: 1;
       display: block;
-
       @starting-style {
         opacity: 0;
       }

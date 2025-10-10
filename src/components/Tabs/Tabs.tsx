@@ -13,9 +13,7 @@ export const Tabs: React.FC<TabsProps> = ({ variant, children }) => {
 
   return (
     <TabsContext.Provider value={{ variant }}>
-      <div role="Tabs" className={classes}>
-        {children}
-      </div>
+      <div className={classes}>{children}</div>
     </TabsContext.Provider>
   );
 };

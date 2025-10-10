@@ -15,6 +15,11 @@
   font-size: 0.875rem;
 }
 
+@mixin bodyL {
+  @include baseFont;
+  font-size: 1rem;
+}
+
 @mixin bodyXL {
   @include baseFont;
   font-size: 1.125rem;
