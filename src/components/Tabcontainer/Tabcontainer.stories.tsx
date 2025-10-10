@@ -5,12 +5,37 @@ import { Tabpanel } from "../Tabpanel";
 import { Tabpanels } from "../Tabpanels";
 import { Tabcontainer } from "./";
 
+import { userEvent, within, expect } from "storybook/test";
+
 const meta: Meta<typeof Tabcontainer> = {
   title: "Components/TabContainer",
   component: Tabcontainer,
 };
 export default meta;
 type Story = StoryObj<typeof Tabcontainer>;
+
+async function TabcontainerTest(canvasElement: HTMLElement) {
+  const canvas = within(canvasElement);
+
+  // Check if the first tab is visible
+  await expect(canvas.getByRole("tab", { name: /Are we/ })).toBeVisible();
+
+  // Simulate a click on the second tab
+  await userEvent.click(canvas.getByRole("tab", { name: /other way/ }));
+
+  // Expect the second tabpanel is visible
+  await expect(canvas.getByText(/After IBM/)).toBeVisible();
+
+  // Torna al primo con la tastiera (freccia sinistra)
+  const tab2 = canvas.getByRole("tab", { name: /Second tab/ });
+  tab2.focus();
+  await userEvent.keyboard("{ArrowLeft}");
+  await expect(canvas.getByText(/Content 1/)).toBeVisible();
+
+  // Vai all’ultimo con End
+  await userEvent.keyboard("{End}");
+  await expect(canvas.getByText(/Content 3/)).toBeVisible();
+}
 
 export const PillTabcontainer: Story = {
   storyName: "Pill variant",
@@ -98,6 +123,9 @@ export const PillTabcontainer: Story = {
       </Tabpanels>
     </Tabcontainer>
   ),
+  play: async ({ canvasElement }) => {
+    await TabcontainerTest(canvasElement);
+  },
 };
 
 export const UnderlineTabcontainer: Story = {
