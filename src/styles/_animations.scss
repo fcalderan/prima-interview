@@ -1,0 +1,35 @@
+$duration-s: 0.16s;
+$easing-default: ease-in;
+
+/* We respect user preferences */
+@mixin noReducedMotion {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+@mixin animColors {
+  @include noReducedMotion {
+    transition: color, background-color $duration-s $easing-default;
+    will-change: color, background-color;
+  }
+}
+
+@mixin animDisplay {
+  @include noReducedMotion {
+    display: none;
+    opacity: 0;
+    will-change: opacity, display;
+    transition: opacity $duration-s $easing-default,
+      display $duration-s $easing-default allow-discrete;
+
+    &:not([hidden]) {
+      opacity: 1;
+      display: block;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+  }
+}

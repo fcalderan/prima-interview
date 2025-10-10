@@ -1,5 +1,4 @@
-@use "../../styles/breakpoints.scss" as bp;
-@import "../../styles/tokens.css";
+@use "../../styles/common.scss" as c;
 
 .Tabs {
   display: flex;
@@ -7,7 +6,7 @@
   &.pill {
     gap: var(--spacing-2xs);
 
-    @media (width > bp.$medium) {
+    @media (width > c.$bp-medium) {
       gap: var(--spacing-xs);
     }
   }
@@ -15,7 +14,7 @@
   &.underline {
     gap: var(--spacing-l);
 
-    @media (width > bp.$medium) {
+    @media (width > c.$bp-medium) {
       gap: var(--spacing-xl);
     }
   }

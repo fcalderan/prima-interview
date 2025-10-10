@@ -1,8 +1,7 @@
-@use "../../styles/breakpoints.scss" as bp;
-@import "../../styles/tokens.css";
+@use "../../styles/common.scss" as c;
 
 .badge {
-  composes: bodyS from "../../styles/typography.css";
+  @include c.bodyS;
 
   color: var(--OnNeutral);
   font-style: normal;
@@ -11,7 +10,7 @@
 
   padding: var(--spacing-4xs) var(--spacing-3xs);
 
-  @media (width > bp.$medium) {
+  @media (width > c.$bp-medium) {
     padding: var(--spacing-3xs) var(--spacing-2xs);
   }
 

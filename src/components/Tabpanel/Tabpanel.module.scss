@@ -1,12 +1,11 @@
-@use "../../styles/breakpoints.scss" as bp;
-@import "../../styles/tokens.css";
+@use "../../styles/common.scss" as c;
 
 /* some basic style to show the content of a panel */
 
 .tabpanel {
-  composes: bodyXL from "../../styles/typography.css";
-
-  margin-block-start: 12px;
+  @include c.bodyXL;
+  @include c.animDisplay;
+  grid-area: 1/1;
   padding: var(--spacing-2xs);
   border-radius: 2px;
   &:focus {

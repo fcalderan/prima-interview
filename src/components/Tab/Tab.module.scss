@@ -1,10 +1,8 @@
-@use "../../styles/breakpoints.scss" as bp;
-@import "../../styles/tokens.css";
-@import "../../styles/animations.css";
+@use "../../styles/common.scss" as c;
 
 .tab {
-  composes: bodyM from "../../styles/typography.css";
-  composes: colors from "../../styles/animations.css";
+  @include c.bodyM;
+  @include c.animColors;
 
   font-weight: 700;
   border: unset;
@@ -18,7 +16,7 @@
 
   block-size: 2.625rem;
 
-  @media (width > bp.$medium) {
+  @media (width > c.$bp-medium) {
     block-size: 3.125rem;
   }
 
@@ -36,7 +34,7 @@
     border: 1px solid;
     padding: var(--spacing-0) var(--spacing-xs);
 
-    @media (width > bp.$medium) {
+    @media (width > c.$bp-medium) {
       padding-inline: var(--spacing-s);
     }
 
