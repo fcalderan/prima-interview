@@ -4,7 +4,8 @@
   display: grid;
   padding-block: 10px 50px;
 
-  [role="tabpanel"] {
+  > [role="tabpanel"] {
+    grid-area: 1 / 1;
     @include c.animDisplay;
   }
 }

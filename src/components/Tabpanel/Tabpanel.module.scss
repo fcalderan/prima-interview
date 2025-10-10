@@ -4,7 +4,6 @@
 
 .tabpanel {
   @include c.bodyXL;
-  grid-area: 1/1;
   padding: var(--spacing-2xs);
   border-radius: 2px;
   &:focus {

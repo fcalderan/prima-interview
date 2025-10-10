@@ -73,10 +73,6 @@ export const Tabcontainer: React.FC<TabcontainerProps> = ({
     tabs[nextFocusedTabIndex].focus();
   };
 
-  const updateState = (tabElement: HTMLElement) => {
-    setSelectedTab(tabElement.dataset.id);
-  };
-
   /* Set the tab */
   const handleTabClick = (ev: React.MouseEvent<HTMLDivElement>) => {
     const target = ev.target as HTMLElement;

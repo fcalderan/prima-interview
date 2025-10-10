@@ -1,0 +1,28 @@
+# Tabpanels
+
+The {'<Tabpanels>'} component just provides a convenient wrapper for all the tabpanel components.
+
+```
+<Tabpanels>
+    <Tabpanel id="..."></Tabpanel>
+    <Tabpanel id="..."></Tabpanel>
+    <Tabpanel id="..."></Tabpanel>
+    ...
+</Tabpanels>
+
+```
+
+This component <strong>is not strictly necessary</strong> and its use is totally optional.
+
+I used this wrapper in order to realize a subtle transition between panels when the user changes the active tab.
+
+The wrapper has `display: grid` and applies `grid-area: 1 / 1` to its children, so they can overlap  
+each other and completely fill the wrapper. This allows for a simple seamless crossfade effect between
+panels <i>(see the \_animations.scss file for the specific implementation)</i>.
+
+For this purpose I used `@starting-style` to properly trigger a transition of hidden panels and set
+`transition-behavior: allow-discrete` to animate the `display` property (both these features are now
+baseline for all major browsers).
+
+Of course, this effect respects the user's settings and will not be triggered if `prefers-reduced-motion`
+is set to `reduce`.

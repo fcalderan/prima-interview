@@ -5,7 +5,6 @@ import { Tabs, TabsProps } from ".";
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
   component: Tabs,
-  tags: ["autodocs"],
   argTypes: {
     variant: {
       control: { type: "select" },

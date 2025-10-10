@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas, Controls } from "@storybook/blocks";
+import { Tabcontainer } from "./Tabcontainer";
+import * as TabcontainerStories from "./Tabcontainer.stories";
+
+<Meta title="Components/Tabcontainer" of={TabcontainerStories} />
+
+# Tabcontainer
+
+This component is a wrapper for {'<Tabs>'} and {'<Tabpanels>'} components.
+
+It provides a simple container for all the components,
+and makes the tabs properly work on click and keydown events.
+
+It also set context provider to set both the id of the selected tab and
+a unique identifier to avoid potential name duplications making the markup invalid.
+
+It accepts an optional `initialSelectedTab` property to select one of the tabs, if its ID matches with
+one of those provided in a {'<Tab>'} element. If no property is passed to the component, no tabs
+will be preselected and no panels will be active.
+
+<Canvas>
+  <Story of={TabcontainerStories.PillTabcontainer} />
+</Canvas>

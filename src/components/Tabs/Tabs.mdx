@@ -1,0 +1,26 @@
+import { Meta, Story, Canvas, Controls } from "@storybook/blocks";
+import { Tabs } from "./Tabs";
+import * as TabsStories from "./Tabs.stories";
+
+<Meta title="Components/Tabs" of={TabsStories} />
+
+# Tabs
+
+This component is a wrapper for {'<Tab>'} components.
+
+It provides both a simple {'<div>'} container for the button elements and a context to optionally set
+the value of the `variant` prop for every children.
+
+If the `variant` is set in this element it will override any `variant` property
+applied on the children. This behaviour is shown in the example below:
+If you click the **show code** button the third and fourth button have their own
+`variant` property applied, but the {'<Tab>'} component will check first for
+the context created by {'<Tabs>'}
+
+This component only shows the basic style of the tab list. To see a fully functional component
+see the {'<Tabcontainer>'} story which also includes some tabpanels
+
+<Canvas>
+  <Story of={TabsStories.playground} />
+</Canvas>
+<Controls of={TabsStories.playground} />

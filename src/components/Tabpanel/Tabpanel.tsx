@@ -2,12 +2,12 @@ import { useContext } from "react";
 import { TabcontainerContext } from "../Tabcontainer/context/TabcontainerContext";
 import styles from "./Tabpanel.module.scss";
 
-type TabpanelType = {
+export type TabpanelProps = {
   id: string;
   children?: React.ReactElement;
 };
 
-export const Tabpanel: React.FC<TabpanelType> = function ({ id, children }) {
+export const Tabpanel: React.FC<TabpanelProps> = function ({ id, children }) {
   /* Check if the component is within a Tabcontainer context, get  */
   const ctxTabcontainer = useContext(TabcontainerContext);
   const ctxUID = ctxTabcontainer?.uID !== undefined ? ctxTabcontainer?.uID : "";
@@ -19,7 +19,7 @@ export const Tabpanel: React.FC<TabpanelType> = function ({ id, children }) {
   const ctxIsSelected =
     ctxTabcontainer?.selectedTab !== undefined
       ? ctxTabcontainer.selectedTab === id
-      : false;
+      : true;
 
   return (
     <div

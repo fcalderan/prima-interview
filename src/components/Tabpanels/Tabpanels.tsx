@@ -1,9 +1,9 @@
 import styles from "./Tabpanels.module.scss";
 
-type TabpanelsType = {
+export type TabpanelsProps = {
   children: React.ReactNode;
 };
 
-export const Tabpanels: React.FC<TabpanelsType> = function ({ children }) {
+export const Tabpanels: React.FC<TabpanelsProps> = function ({ children }) {
   return <div className={styles.tabpanels}>{children}</div>;
 };

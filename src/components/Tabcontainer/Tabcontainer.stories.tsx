@@ -8,12 +8,12 @@ import { Tabcontainer } from "./";
 const meta: Meta<typeof Tabcontainer> = {
   title: "Components/TabContainer",
   component: Tabcontainer,
-  tags: ["autodocs"],
 };
 export default meta;
 type Story = StoryObj<typeof Tabcontainer>;
 
 export const PillTabcontainer: Story = {
+  storyName: "Pill variant",
   render: () => (
     <Tabcontainer initialSelectedTab="tab3">
       <Tabs variant="pill">
@@ -101,6 +101,7 @@ export const PillTabcontainer: Story = {
 };
 
 export const UnderlineTabcontainer: Story = {
+  storyName: "Underline variant",
   render: () => (
     <Tabcontainer initialSelectedTab="tab1">
       <Tabs variant="underline">
